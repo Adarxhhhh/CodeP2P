@@ -1,0 +1,93 @@
+.sidebar {
+   background-color: #1A2038;
+   width: 220px;
+   padding-top: 1rem;
+   padding-left: 1rem;
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   position: fixed;
+   top: 0;
+   left: 0;
+   height: 100vh;
+   transform: translateX(0);
+   transition: transform 0.3s ease;
+   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sidebarHidden {
+   transform: translateX(-100%);
+}
+
+.logoContainer {
+   width: 100%;
+   margin-bottom: 1rem;
+   display: flex;
+   align-items: center;
+}
+
+.logo {
+   width: 100px;
+   padding-left: 8px;
+   height: auto;
+   object-fit: contain;
+}
+
+.nav {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+}
+
+.navItem {
+   color: #8A93A2;
+   text-decoration: none;
+   padding: 0.8rem 0.8rem;
+   font-size: 1rem;
+   display: flex;
+   align-items: center;
+   cursor: pointer;
+   border-radius: 8px;
+   transition: background-color 0.3s ease;
+}
+
+.icon {
+   margin-right: 0.5rem;
+   font-size: 1.2rem;
+}
+
+.chevronIcon {
+   margin-left: auto;
+   font-size: 1rem;
+}
+
+.navItem:hover {
+   color: #ECEFF4;
+   background-color: #272D45;
+}
+
+.subNav {
+   display: flex;
+   flex-direction: column;
+   margin-left: 1.2rem;
+}
+
+.subNavItem {
+   color: #8A93A2;
+   text-decoration: none;
+   padding: 0.5rem 0;
+   padding-left: 1rem;
+   font-size: 0.9rem;
+   display: flex;
+   align-items: center;
+   transition: color 0.3s ease;
+}
+
+.subNavIcon {
+   margin-right: 0.5rem;
+   font-size: 1rem;
+}
+
+.subNavItem:hover {
+   color: #ECEFF4;
+}
