@@ -11,9 +11,9 @@
    margin: 0.4rem;
 }
 
-.balanceCard:hover {
+/* .balanceCard:hover {
    transform: scale(1.02);
-}
+} */
 
 .balanceCard h2 {
    font-size: 1.2rem;

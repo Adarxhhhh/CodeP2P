@@ -10,10 +10,10 @@
    margin: 0.4rem 0.4rem 0;
 }
 
-.marketplaceSection:hover {
+/* .marketplaceSection:hover {
    transform: scale(1.02);
    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-}
+} */
 
 .marketplaceHeader {
    display: flex;
