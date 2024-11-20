@@ -29,7 +29,16 @@ function Sidebar({ isSidebarOpen , isStationsToggleable , isInsideStations}) {
                 </a>
             </div>
             <nav className={styles.nav}>
-                <NavLink to="/" className={styles.navItem}>
+                <NavLink 
+                    to="/" 
+                    className={styles.navItem}
+                    style={({ isActive }) => {
+                        return {
+                            color: isActive && '#ECEFF4',
+                            backgroundColor: isActive && '#272D45'
+                        };
+                    }}
+                >
                     <FiHome className={styles.icon} /> Dashboard
                 </NavLink>
                 <div className={styles.navItem} onClick={toggleStations}>
@@ -38,15 +47,42 @@ function Sidebar({ isSidebarOpen , isStationsToggleable , isInsideStations}) {
                 </div>
                 {isStationsOpen && (
                     <div className={styles.subNav}>
-                        <NavLink to="/producing-stations" className={styles.subNavItem}>
+                        <NavLink 
+                            to="/producing-stations" 
+                            className={styles.subNavItem}
+                            style={({ isActive }) => {
+                                return {
+                                    color: isActive && '#ECEFF4',
+                                    backgroundColor: isActive && '#272D45'
+                                };
+                            }}
+                        >
                             <FiArrowRight className={styles.subNavIcon} /> Producing Stations
                         </NavLink>
-                        <NavLink to="/consuming-stations" className={styles.subNavItem}>
+                        <NavLink 
+                            to="/consuming-stations" 
+                            className={styles.subNavItem}
+                            style={({ isActive }) => {
+                                return {
+                                    color: isActive && '#ECEFF4',
+                                    backgroundColor: isActive && '#272D45'
+                                };
+                            }}
+                        >
                             <FiArrowRight className={styles.subNavIcon} /> Consuming Stations
                         </NavLink>
                     </div>
                 )}
-                <NavLink to="/settings" className={styles.navItem}>
+                <NavLink 
+                    to="/settings" 
+                    className={styles.navItem}
+                    style={({ isActive }) => {
+                        return {
+                            color: isActive && '#ECEFF4',
+                            backgroundColor: isActive && '#272D45'
+                        };
+                    }}
+                >
                     <FiSettings className={styles.icon} /> Settings
                 </NavLink>
             </nav>
