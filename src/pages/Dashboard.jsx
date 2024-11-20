@@ -3,7 +3,7 @@ import { ethers } from 'ethers';
 import Sidebar from '../components/Sidebar/Sidebar';
 import Header from '../components/Header/Header';
 import BalanceCard from '../components/BalanceCard/BalanceCard';
-import Marketplace from '../components/Marketplace/Marketplace';
+import Marketplace from '../components/MarketplaceComponent/MarketplaceComponent';
 // import './App.css';
 
 function Dashboard() {
@@ -72,7 +72,7 @@ function Dashboard() {
                 <Header toggleSidebar={toggleSidebar} />
                 <section className="balance-section">
                     <BalanceCard 
-                        type="ETH" 
+                        type="ROSE" 
                         balance={balances.ETH} 
                         onAddMore={connectWallet} 
                     />

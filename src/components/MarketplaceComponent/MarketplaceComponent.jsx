@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import MarketplaceTable from '../MarketplaceTable/MarketplaceTable';
-import styles from './Marketplace.module.css';
+import styles from './MarketplaceComponent.module.css';
 
 function Marketplace() {
     const [filterText, setFilterText] = useState('');

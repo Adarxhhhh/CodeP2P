@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FiHome, FiSettings, FiChevronDown, FiChevronUp, FiMapPin, FiArrowRight } from 'react-icons/fi';
+import { FiHome, FiSettings, FiChevronDown, FiChevronUp, FiMapPin, FiArrowRight, FiShoppingCart } from 'react-icons/fi';
 import styles from './Sidebar.module.css';
 import logo from '../../assets/logo.png';
 import { NavLink } from 'react-router-dom';
@@ -73,6 +73,18 @@ function Sidebar({ isSidebarOpen , isStationsToggleable , isInsideStations}) {
                         </NavLink>
                     </div>
                 )}
+                <NavLink 
+                    to="/marketplace" 
+                    className={styles.navItem}
+                    style={({ isActive }) => {
+                        return {
+                            color: isActive && '#ECEFF4',
+                            backgroundColor: isActive && '#272D45'
+                        };
+                    }}
+                >
+                    <FiShoppingCart className={styles.icon} /> Marketplace
+                </NavLink>
                 <NavLink 
                     to="/settings" 
                     className={styles.navItem}
