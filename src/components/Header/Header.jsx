@@ -1,5 +1,4 @@
-import React from 'react';
-import { FiSun, FiMoon, FiUser, FiMenu } from 'react-icons/fi';
+import { FiSun, FiUser, FiMenu } from 'react-icons/fi';
 import styles from './Header.module.css';
 
 function Header({ toggleSidebar }) {

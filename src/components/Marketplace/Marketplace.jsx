@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import MarketplaceTable from '../MarketplaceTable/MarketplaceTable';
 import styles from './Marketplace.module.css';
 

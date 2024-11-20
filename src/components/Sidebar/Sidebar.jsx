@@ -1,13 +1,24 @@
-import React, { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiHome, FiSettings, FiChevronDown, FiChevronUp, FiMapPin, FiArrowRight } from 'react-icons/fi';
 import styles from './Sidebar.module.css';
 import logo from '../../assets/logo.png';
+import { NavLink } from 'react-router-dom';
 
-function Sidebar({ isSidebarOpen }) {
+function Sidebar({ isSidebarOpen , isStationsToggleable , isInsideStations}) {
     const [isStationsOpen, setIsStationsOpen] = useState(false);
 
+    // if(!alreadyOpen) setIsStationsOpen((iso) => !iso);
+
+    // useEffect(() => {
+    //     if(alreadyOpen && !isStationsOpen) setIsStationsOpen((iso) => !iso);
+    // }, [alreadyOpen, isStationsOpen]);
+
+    useEffect(() => {
+        if(isInsideStations) setIsStationsOpen(true);
+    }, [isStationsOpen, isInsideStations]);
+
     const toggleStations = () => {
-        setIsStationsOpen(!isStationsOpen);
+        if(isStationsToggleable) setIsStationsOpen((iso) => !iso);
     };
 
     return (
@@ -18,26 +29,26 @@ function Sidebar({ isSidebarOpen }) {
                 </a>
             </div>
             <nav className={styles.nav}>
-                <a href="#" className={styles.navItem}>
+                <NavLink to="/" className={styles.navItem}>
                     <FiHome className={styles.icon} /> Dashboard
-                </a>
+                </NavLink>
                 <div className={styles.navItem} onClick={toggleStations}>
                     <FiMapPin className={styles.icon} /> My Stations
                     {isStationsOpen ? <FiChevronUp className={styles.chevronIcon} /> : <FiChevronDown className={styles.chevronIcon} />}
                 </div>
                 {isStationsOpen && (
                     <div className={styles.subNav}>
-                        <a href="#" className={styles.subNavItem}>
+                        <NavLink to="/producing-stations" className={styles.subNavItem}>
                             <FiArrowRight className={styles.subNavIcon} /> Producing Stations
-                        </a>
-                        <a href="#" className={styles.subNavItem}>
+                        </NavLink>
+                        <NavLink to="/consuming-stations" className={styles.subNavItem}>
                             <FiArrowRight className={styles.subNavIcon} /> Consuming Stations
-                        </a>
+                        </NavLink>
                     </div>
                 )}
-                <a href="#" className={styles.navItem}>
+                <NavLink to="/settings" className={styles.navItem}>
                     <FiSettings className={styles.icon} /> Settings
-                </a>
+                </NavLink>
             </nav>
         </aside>
     );
