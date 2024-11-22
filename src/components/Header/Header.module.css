@@ -16,7 +16,7 @@
     width: 300px;
     border-radius: 8px;
     border: none;
-    background-color: var(--card-background); /* Background adjusts to theme */
+    background-color: var(--serchbar-background); /* Background adjusts to theme */
     color: var(--card-text); /* Text color adjusts to theme */
     outline: none;
     transition: background-color 0.3s ease, color 0.3s ease;

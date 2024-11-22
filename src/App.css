@@ -6,10 +6,11 @@
   --sidebar-background: #1A2038; /* Dark sidebar */
   --card-background: #1E2438; /* Dark card */
   --card-text: #ECEFF4; /* Light text for cards */
-  --button-background: #181C29; /* Darker gray for button */
+  --button-background: #1a7bb7; /* Darker gray for button */
   --button-text: #ECEFF4; /* Light text for contrast */
   --button-hover-background: #10141E; /* Even darker shade for hover */
   --button-text-hover: #FFFFFF; /* Optional hover text color */
+  --serchbar-background : #1E2438;
 }
 
 .light-theme {
@@ -21,10 +22,11 @@
   --card-text: #333333; /* Dark gray for text */
   --icon-color: #555555; /* Icons in light mode */
   --hover-icon-color: #000000; /* Dark hover color */
-  --button-background: #8F8F8F; /* 1 shade darker gray for buttons */
-  --button-text: #333333; /* Dark text for buttons */
+  --button-background: #9c9b9a; /* 1 shade darker gray for buttons */
+  --button-text: #000000; /* Dark text for buttons */
   --button-hover-background: #696969; /* Slightly darker hover gray */
   --button-text-hover: #000000; /* Optional hover text color */
+  --serchbar-background : #d9d7d7;
 }
 /* Apply theme dynamically */
 body, .app-container {

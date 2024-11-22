@@ -8,7 +8,7 @@ import {
     FiArrowRight
 } from 'react-icons/fi';
 import styles from './Sidebar.module.css';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/p2p.png';
 
 function Sidebar({ isSidebarOpen }) {
     const [isStationsOpen, setIsStationsOpen] = useState(false);
