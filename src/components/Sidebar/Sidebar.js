@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import { FiHome, FiSettings, FiChevronDown, FiChevronUp, FiMapPin, FiArrowRight } from 'react-icons/fi';
+import {
+    FiHome,
+    FiSettings,
+    FiChevronDown,
+    FiChevronUp,
+    FiMapPin,
+    FiArrowRight
+} from 'react-icons/fi';
 import styles from './Sidebar.module.css';
 import logo from '../../assets/logo.png';
 
@@ -23,7 +30,11 @@ function Sidebar({ isSidebarOpen }) {
                 </a>
                 <div className={styles.navItem} onClick={toggleStations}>
                     <FiMapPin className={styles.icon} /> My Stations
-                    {isStationsOpen ? <FiChevronUp className={styles.chevronIcon} /> : <FiChevronDown className={styles.chevronIcon} />}
+                    {isStationsOpen ? (
+                        <FiChevronUp className={styles.chevronIcon} />
+                    ) : (
+                        <FiChevronDown className={styles.chevronIcon} />
+                    )}
                 </div>
                 {isStationsOpen && (
                     <div className={styles.subNav}>

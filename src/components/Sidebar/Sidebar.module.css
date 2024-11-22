@@ -1,5 +1,6 @@
 .sidebar {
-   background-color: #1A2038;
+   background-color: var(--sidebar-background);
+   color: var(--text-color);
    width: 220px;
    padding-top: 1rem;
    padding-left: 1rem;
@@ -11,7 +12,7 @@
    left: 0;
    height: 100vh;
    transform: translateX(0);
-   transition: transform 0.3s ease;
+   transition: background-color 0.3s ease, color 0.3s ease;
    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -40,7 +41,7 @@
 }
 
 .navItem {
-   color: #8A93A2;
+   color: var(--text-color);
    text-decoration: none;
    padding: 0.8rem 0.8rem;
    font-size: 1rem;
@@ -48,7 +49,7 @@
    align-items: center;
    cursor: pointer;
    border-radius: 8px;
-   transition: background-color 0.3s ease;
+   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .icon {
@@ -62,8 +63,8 @@
 }
 
 .navItem:hover {
-   color: #ECEFF4;
-   background-color: #272D45;
+   color: var(--card-text);
+   background-color: var(--sidebar-hover-background);
 }
 
 .subNav {
@@ -73,7 +74,7 @@
 }
 
 .subNavItem {
-   color: #8A93A2;
+   color: var(--text-color);
    text-decoration: none;
    padding: 0.5rem 0;
    padding-left: 1rem;
@@ -89,5 +90,5 @@
 }
 
 .subNavItem:hover {
-   color: #ECEFF4;
+   color: var(--card-text);
 }

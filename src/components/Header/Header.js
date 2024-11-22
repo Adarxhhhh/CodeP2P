@@ -1,15 +1,49 @@
 import React from 'react';
-import { FiSun, FiMoon, FiUser, FiMenu } from 'react-icons/fi';
+import { FiMenu, FiUser, FiSun, FiMoon } from 'react-icons/fi';
+import { useTheme } from '../../context/ThemeContext';
 import styles from './Header.module.css';
 
 function Header({ toggleSidebar }) {
+    const { theme, toggleTheme } = useTheme();
+
     return (
         <header className={styles.header}>
-            <input type="text" className={styles.searchBar} placeholder="Search here..." />
+            {/* Burger menu for toggling the sidebar */}
+            <FiMenu
+                className={styles.burgerIcon}
+                onClick={toggleSidebar}
+                title="Toggle Sidebar"
+            />
+
+            {/* Search bar */}
+            <input
+                type="text"
+                className={styles.searchBar}
+                placeholder="Search here..."
+            />
+
+            {/* Right-side icons: Light/Dark mode toggle and account actions */}
             <div className={styles.icons}>
-                <FiSun className={styles.icon} title="Light Mode" />
-                <FiMenu className={styles.burgerIcon} onClick={toggleSidebar} title="Toggle Sidebar" />
-                <FiUser className={styles.icon} title="Account" />
+                {theme === 'dark' ? (
+                    <FiSun
+                        className={styles.icon}
+                        title="Switch to Light Mode"
+                        onClick={toggleTheme}
+                    />
+                ) : (
+                    <FiMoon
+                        className={styles.icon}
+                        title="Switch to Dark Mode"
+                        onClick={toggleTheme}
+                    />
+                )}
+
+                {/* Account icon */}
+                <FiUser
+                    className={styles.icon}
+                    title="Account"
+                    onClick={() => alert('Account actions here!')}
+                />
             </div>
         </header>
     );

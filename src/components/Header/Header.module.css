@@ -1,12 +1,14 @@
 .header {
+    background-color: var(--header-background); /* Dynamically changes based on theme */
+    color: var(--text-color); /* Text adapts to theme */
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
-    background-color: #1A1F36;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
-    border-radius: 12px; /* Adds rounded corners */
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .searchBar {
@@ -14,9 +16,10 @@
     width: 300px;
     border-radius: 8px;
     border: none;
-    background-color: #2A2E45;
-    color: #ECEFF4;
+    background-color: var(--card-background); /* Background adjusts to theme */
+    color: var(--card-text); /* Text color adjusts to theme */
     outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .icons {
@@ -28,10 +31,15 @@
 .icon, .burgerIcon {
     font-size: 1.5rem;
     cursor: pointer;
-    color: #8A93A2;
+    color: var(--icon-color); /* Icon color adapts to theme */
     transition: color 0.3s ease;
 }
 
 .icon:hover, .burgerIcon:hover {
-    color: #ECEFF4;
+    color: var(--hover-icon-color); /* Hover color adapts to theme */
+}
+
+.burgerIcon {
+    font-size: 2rem;
+    margin-right: 1rem;
 }

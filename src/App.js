@@ -4,6 +4,7 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Header from './components/Header/Header';
 import BalanceCard from './components/BalanceCard/BalanceCard';
 import Marketplace from './components/Marketplace/Marketplace';
+import { useTheme } from './context/ThemeContext'; // Import useTheme
 import './App.css';
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
     const [walletConnected, setWalletConnected] = useState(false);
     const [provider, setProvider] = useState(null);
     const [account, setAccount] = useState(null);
+
+    const { theme } = useTheme(); // Get the current theme from ThemeContext
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -22,17 +25,17 @@ function App() {
         if (window.ethereum) {
             try {
                 const provider = new ethers.providers.Web3Provider(window.ethereum);
-                await provider.send("eth_requestAccounts", []); // Request account access
+                await provider.send('eth_requestAccounts', []); // Request account access
                 const signer = provider.getSigner();
                 const address = await signer.getAddress();
                 setProvider(provider);
                 setAccount(address);
                 setWalletConnected(true);
             } catch (error) {
-                console.error("Error connecting to MetaMask:", error);
+                console.error('Error connecting to MetaMask:', error);
             }
         } else {
-            alert("Please install MetaMask!");
+            alert('Please install MetaMask!');
         }
     };
 
@@ -45,16 +48,14 @@ function App() {
                 ...prevBalances,
                 ETH: parseFloat(balanceInEth).toFixed(4),
             }));
-            // For demonstration, we’re setting a static CC balance.
-            // Replace this logic if you have a contract or source for Carbon Credits (CC) balance.
+            // Static CC balance for demonstration purposes
             setBalances((prevBalances) => ({
                 ...prevBalances,
-                CC: 100.0, // Example CC balance; replace with dynamic value if needed
+                CC: 100.0, // Replace with dynamic value if needed
             }));
         }
     };
 
-    // Automatically fetch balances when wallet is connected
     useEffect(() => {
         if (walletConnected) {
             fetchBalances();
@@ -62,21 +63,13 @@ function App() {
     }, [walletConnected, account]);
 
     return (
-        <div className="app-container">
+        <div className={`app-container ${theme}-theme`}>
             <Sidebar isSidebarOpen={isSidebarOpen} />
             <main className={`main-content ${isSidebarOpen ? '' : 'sidebar-closed'}`}>
                 <Header toggleSidebar={toggleSidebar} />
                 <section className="balance-section">
-                    <BalanceCard 
-                        type="ETH" 
-                        balance={balances.ETH} 
-                        onAddMore={connectWallet} 
-                    />
-                    <BalanceCard 
-                        type="CC" 
-                        balance={balances.CC} 
-                        onAddMore={connectWallet} 
-                    />
+                    <BalanceCard type="ETH" balance={balances.ETH} onAddMore={connectWallet} />
+                    <BalanceCard type="CC" balance={balances.CC} onAddMore={connectWallet} />
                 </section>
                 <Marketplace />
             </main>
