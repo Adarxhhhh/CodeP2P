@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
-import Sidebar from './components/Sidebar/Sidebar';
-import Header from './components/Header/Header';
-import BalanceCard from './components/BalanceCard/BalanceCard';
-import Marketplace from './components/Marketplace/Marketplace';
-import './App.css';
+import Sidebar from '../components/Sidebar/Sidebar';
+import Header from '../components/Header/Header';
+import BalanceCard from '../components/BalanceCard/BalanceCard';
+import Marketplace from '../components/MarketplaceComponent/MarketplaceComponent';
+// import './App.css';
 
-function App() {
+function Dashboard() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
     const [balances, setBalances] = useState({ ETH: 0, CC: 0 });
     const [walletConnected, setWalletConnected] = useState(false);
@@ -37,38 +37,42 @@ function App() {
     };
 
     // Fetch ETH balance from MetaMask wallet
-    const fetchBalances = async () => {
-        if (provider && account) {
-            const balance = await provider.getBalance(account);
-            const balanceInEth = ethers.utils.formatEther(balance);
-            setBalances((prevBalances) => ({
-                ...prevBalances,
-                ETH: parseFloat(balanceInEth).toFixed(4),
-            }));
-            // For demonstration, we’re setting a static CC balance.
-            // Replace this logic if you have a contract or source for Carbon Credits (CC) balance.
-            setBalances((prevBalances) => ({
-                ...prevBalances,
-                CC: 100.0, // Example CC balance; replace with dynamic value if needed
-            }));
-        }
-    };
-
+    
     // Automatically fetch balances when wallet is connected
     useEffect(() => {
+        const fetchBalances = async () => {
+            if (provider && account) {
+                const balance = await provider.getBalance(account);
+                const balanceInEth = ethers.utils.formatEther(balance);
+                setBalances((prevBalances) => ({
+                    ...prevBalances,
+                    ETH: parseFloat(balanceInEth).toFixed(4),
+                }));
+                // For demonstration, we’re setting a static CC balance.
+                // Replace this logic if you have a contract or source for Carbon Credits (CC) balance.
+                setBalances((prevBalances) => ({
+                    ...prevBalances,
+                    CC: 100.0, // Example CC balance; replace with dynamic value if needed
+                }));
+            }
+        };
         if (walletConnected) {
             fetchBalances();
         }
-    }, [walletConnected, account]);
+    }, [walletConnected, account, provider]);
 
     return (
         <div className="app-container">
-            <Sidebar isSidebarOpen={isSidebarOpen} />
+            <Sidebar 
+                isSidebarOpen={isSidebarOpen} 
+                isStationsToggleable={true}
+                isInsideStations={false}
+            />
             <main className={`main-content ${isSidebarOpen ? '' : 'sidebar-closed'}`}>
                 <Header toggleSidebar={toggleSidebar} />
                 <section className="balance-section">
                     <BalanceCard 
-                        type="ETH" 
+                        type="ROSE" 
                         balance={balances.ETH} 
                         onAddMore={connectWallet} 
                     />
@@ -84,4 +88,4 @@ function App() {
     );
 }
 
-export default App;
+export default Dashboard;

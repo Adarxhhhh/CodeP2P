@@ -1,4 +1,3 @@
-import React from 'react';
 import styles from './MarketplaceTable.module.css';
 
 function MarketplaceTable({ filterText }) {
