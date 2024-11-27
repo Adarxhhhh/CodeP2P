@@ -1,0 +1,32 @@
+.marketplaceSection {
+   background-color: var(--card-background);
+   color: var(--card-text);
+   padding: 1.5rem;
+   border-radius: 12px;
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   transition: background-color 0.3s ease, color 0.3s ease;
+   margin: 0.4rem 0;
+}
+
+.marketplaceHeader {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 1rem;
+   gap: 1rem;
+}
+
+.filterInput {
+   padding: 0.6rem;
+   border-radius: 8px;
+   border: none;
+   background-color: var(--sidebar-background);
+   color: var(--text-color);
+   outline: none;
+   width: 150px;
+   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.filterInput:hover {
+   background-color: var(--hover-icon-color);
+}

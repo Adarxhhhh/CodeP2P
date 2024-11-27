@@ -1,8 +1,43 @@
+/* Default (Dark Mode) */
+:root {
+  --background-color: #121829; /* Dark background */
+  --text-color: #ECEFF4; /* Light text */
+  --header-background: #1A2038; /* Dark header */
+  --sidebar-background: #1A2038; /* Dark sidebar */
+  --card-background: #1E2438; /* Dark card */
+  --card-text: #ECEFF4; /* Light text for cards */
+  --button-background: #1a7bb7; /* Darker gray for button */
+  --button-text: #ECEFF4; /* Light text for contrast */
+  --button-hover-background: #10141E; /* Even darker shade for hover */
+  --button-text-hover: #FFFFFF; /* Optional hover text color */
+  --serchbar-background : #1E2438;
+}
+
+.light-theme {
+  --background-color: #f7f7f7; /* Light gray background */
+  --text-color: #333333; /* Dark gray text */
+  --header-background: #e1e1e1; /* Light gray for header */
+  --sidebar-background: #e1e1e1; /* Light gray for sidebar */
+  --card-background: #e1e1e1; /* Slightly lighter gray for cards */
+  --card-text: #333333; /* Dark gray for text */
+  --icon-color: #555555; /* Icons in light mode */
+  --hover-icon-color: #000000; /* Dark hover color */
+  --button-background: #9c9b9a; /* 1 shade darker gray for buttons */
+  --button-text: #000000; /* Dark text for buttons */
+  --button-hover-background: #696969; /* Slightly darker hover gray */
+  --button-text-hover: #000000; /* Optional hover text color */
+  --serchbar-background : #d9d7d7;
+}
+/* Apply theme dynamically */
+body, .app-container {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 .app-container {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(135deg, #121829, #101215);
-  color: #ECEFF4;
 }
 
 .main-content {
@@ -24,4 +59,10 @@
   gap: 2rem;
   margin-bottom: 2rem;
   flex-wrap: wrap;
+}
+
+.header .icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
 }

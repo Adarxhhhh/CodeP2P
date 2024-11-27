@@ -1,5 +1,5 @@
 .balanceCard {
-   background-color: #1E2438;
+   background-color: var(--card-background);
    padding: 1.5rem;
    border-radius: 12px;
    text-align: center;
@@ -7,17 +7,13 @@
    flex: 1 1 45%; 
    min-width: 250px; 
    max-width: 100%;
-   transition: transform 0.2s;
+   transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
    margin: 0.4rem;
 }
 
-/* .balanceCard:hover {
-   transform: scale(1.02);
-} */
-
 .balanceCard h2 {
    font-size: 1.2rem;
-   color: #B2B8D2;
+   color: var(--card-heading-color);
    margin-bottom: 0.5rem;
 }
 
@@ -25,21 +21,22 @@
    font-size: 1.8rem;
    font-weight: bold;
    margin-bottom: 1rem;
-   color: #ECEFF4;
+   color: var(--card-text);
 }
 
 .addButton {
-   background-color: #3272E2;
-   color: #ECEFF4;
+   background-color: var(--button-background); /* Darker gray */
+   color: var(--button-text);
    border: none;
    padding: 0.6rem 1.2rem;
    border-radius: 8px;
    cursor: pointer;
-   transition: background-color 0.3s ease;
+   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .addButton:hover {
-   background-color: #2551B2;
+   background-color: var(--button-hover-background); /* Even darker gray */
+   color: var(--button-text-hover);
 }
 
 @media (max-width: 768px) {

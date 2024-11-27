@@ -4,6 +4,7 @@ import Sidebar from '../components/Sidebar/Sidebar';
 import Header from '../components/Header/Header';
 import BalanceCard from '../components/BalanceCard/BalanceCard';
 import Marketplace from '../components/MarketplaceComponent/MarketplaceComponent';
+import { useTheme } from './context/ThemeContext'; // Import useTheme
 // import './App.css';
 
 function Dashboard() {
@@ -12,6 +13,8 @@ function Dashboard() {
     const [walletConnected, setWalletConnected] = useState(false);
     const [provider, setProvider] = useState(null);
     const [account, setAccount] = useState(null);
+
+    const { theme } = useTheme(); // Get the current theme from ThemeContext
 
     const toggleSidebar = () => {
         setIsSidebarOpen(!isSidebarOpen);
@@ -22,47 +25,45 @@ function Dashboard() {
         if (window.ethereum) {
             try {
                 const provider = new ethers.providers.Web3Provider(window.ethereum);
-                await provider.send("eth_requestAccounts", []); // Request account access
+                await provider.send('eth_requestAccounts', []); // Request account access
                 const signer = provider.getSigner();
                 const address = await signer.getAddress();
                 setProvider(provider);
                 setAccount(address);
                 setWalletConnected(true);
             } catch (error) {
-                console.error("Error connecting to MetaMask:", error);
+                console.error('Error connecting to MetaMask:', error);
             }
         } else {
-            alert("Please install MetaMask!");
+            alert('Please install MetaMask!');
         }
     };
 
     // Fetch ETH balance from MetaMask wallet
-    
-    // Automatically fetch balances when wallet is connected
+    const fetchBalances = async () => {
+        if (provider && account) {
+            const balance = await provider.getBalance(account);
+            const balanceInEth = ethers.utils.formatEther(balance);
+            setBalances((prevBalances) => ({
+                ...prevBalances,
+                ETH: parseFloat(balanceInEth).toFixed(4),
+            }));
+            // Static CC balance for demonstration purposes
+            setBalances((prevBalances) => ({
+                ...prevBalances,
+                CC: 100.0, // Replace with dynamic value if needed
+            }));
+        }
+    };
+
     useEffect(() => {
-        const fetchBalances = async () => {
-            if (provider && account) {
-                const balance = await provider.getBalance(account);
-                const balanceInEth = ethers.utils.formatEther(balance);
-                setBalances((prevBalances) => ({
-                    ...prevBalances,
-                    ETH: parseFloat(balanceInEth).toFixed(4),
-                }));
-                // For demonstration, we’re setting a static CC balance.
-                // Replace this logic if you have a contract or source for Carbon Credits (CC) balance.
-                setBalances((prevBalances) => ({
-                    ...prevBalances,
-                    CC: 100.0, // Example CC balance; replace with dynamic value if needed
-                }));
-            }
-        };
         if (walletConnected) {
             fetchBalances();
         }
     }, [walletConnected, account, provider]);
 
     return (
-        <div className="app-container">
+        <div className={`app-container ${theme}-theme`}>
             <Sidebar 
                 isSidebarOpen={isSidebarOpen} 
                 isStationsToggleable={true}
