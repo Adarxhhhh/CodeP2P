@@ -1,8 +1,8 @@
-import Dashboard from './pages/Dashboard';
-import ConsumingStations from './pages/Stations/ConsumingStations';
-import ProducingStations from './pages/Stations/ProducingStations';
-import Marketplace from './pages/Marketplace';
-import Settings from './pages/Settings';
+import Dashboard from './pages/Dashboard/Dashboard';
+import ConsumingStations from './pages/Stations/ConsumingStations/ConsumingStations';
+import ProducingStations from './pages/Stations/ProducingStations/ProducingStations';
+import Marketplace from './pages/Marketplace/Marketplace';
+import Settings from './pages/Settings/Settings';
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 

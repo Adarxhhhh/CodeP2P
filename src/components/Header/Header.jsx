@@ -1,4 +1,3 @@
-import React from 'react';
 import { FiMenu, FiUser, FiSun, FiMoon } from 'react-icons/fi';
 import { useTheme } from '../../context/ThemeContext';
 import styles from './Header.module.css';
