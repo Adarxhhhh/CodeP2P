@@ -1,0 +1,44 @@
+.buttonHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.addButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--button-background);
+    color: var(--button-text);
+    font-size: 0.85rem;
+    width: 10vw;
+    min-width: 180px;
+    height: 4vh;
+    min-height: fit-content;
+    border: none;
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+ }
+ 
+ .addButton:hover {
+    background-color: var(--button-hover-background);
+    color: var(--button-text-hover);
+ }
+
+ .consumingStationsList {
+    padding: 0.4rem 0.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-basis: 100px;
+    /* height: 800px; */
+ }

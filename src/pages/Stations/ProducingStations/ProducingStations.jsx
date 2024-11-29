@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Sidebar from '../../../components/Sidebar/Sidebar';
 import Header from '../../../components/Header/Header';
 import MapPopup from '../../../components/MapPopup/MapPopup';
+import styles from './ProducingStations.module.css';
 
 function ProducingStations() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -20,14 +21,17 @@ function ProducingStations() {
             />
             <main className={`main-content ${isSidebarOpen ? '' : 'sidebar-closed'}`}>
                 <Header toggleSidebar={toggleSidebar} />
-                <h1>Map Popup!</h1>
-                <br/>
-                <br/>
-                <button onClick={() => setButtonPopup(true)}>Nearby Producers</button>
+                <div className='page-content'>
+                    <h1>Map Popup!</h1>
+                    <br/>
+                    <br/>
+                    <button className={styles.mapButton} onClick={() => setButtonPopup(true)}>Nearby Producers</button>
+                </div>
             </main>
 
-            <MapPopup trigger={buttonPopup} setTrigger={setButtonPopup}>
-                <h3>Nearby Producers</h3>
+            <MapPopup trigger={buttonPopup} setTrigger={setButtonPopup}
+                title='Nearby Producers'
+            >
             </MapPopup>
         </div>
     );

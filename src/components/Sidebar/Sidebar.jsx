@@ -1,11 +1,18 @@
 import { useEffect, useState } from 'react';
 import { FiHome, FiSettings, FiChevronDown, FiChevronUp, FiMapPin, FiArrowRight, FiShoppingCart } from 'react-icons/fi';
+import { useTheme } from '../../context/ThemeContext';
 import styles from './Sidebar.module.css';
-import logo from '../../assets/logo.png';
+import darkLogo from '../../assets/logo.png';
+import lightLogo from '../../assets/p2p.png';
 import { NavLink } from 'react-router-dom';
+
 
 function Sidebar({ isSidebarOpen , isStationsToggleable , isInsideStations}) {
     const [isStationsOpen, setIsStationsOpen] = useState(false);
+
+    const { theme } = useTheme();
+
+    const activeLogo = theme == 'dark' ? darkLogo : lightLogo;
 
     // if(!alreadyOpen) setIsStationsOpen((iso) => !iso);
 
@@ -22,22 +29,16 @@ function Sidebar({ isSidebarOpen , isStationsToggleable , isInsideStations}) {
     };
 
     return (
-        <aside className={`${styles.sidebar} ${!isSidebarOpen ? styles.sidebarHidden : ''}`}>
+        <div className={`${styles.sidebar} ${!isSidebarOpen ? styles.sidebarHidden : ''}`}>
             <div className={styles.logoContainer}>
                 <a href="https://power2peer.com/" target="_blank" rel="noopener noreferrer">
-                    <img src={logo} alt="Power2Peer Logo" className={styles.logo} />
+                    <img src={activeLogo} alt="Power2Peer Logo" className={styles.logo} />
                 </a>
             </div>
             <nav className={styles.nav}>
                 <NavLink 
                     to="/" 
                     className={styles.navItem}
-                    style={({ isActive }) => {
-                        return {
-                            color: isActive && '#ECEFF4',
-                            backgroundColor: isActive && '#272D45'
-                        };
-                    }}
                 >
                     <FiHome className={styles.icon} /> Dashboard
                 </NavLink>
@@ -50,24 +51,12 @@ function Sidebar({ isSidebarOpen , isStationsToggleable , isInsideStations}) {
                         <NavLink 
                             to="/producing-stations" 
                             className={styles.subNavItem}
-                            style={({ isActive }) => {
-                                return {
-                                    color: isActive && '#ECEFF4',
-                                    backgroundColor: isActive && '#272D45'
-                                };
-                            }}
                         >
                             <FiArrowRight className={styles.subNavIcon} /> Producing Stations
                         </NavLink>
                         <NavLink 
                             to="/consuming-stations" 
                             className={styles.subNavItem}
-                            style={({ isActive }) => {
-                                return {
-                                    color: isActive && '#ECEFF4',
-                                    backgroundColor: isActive && '#272D45'
-                                };
-                            }}
                         >
                             <FiArrowRight className={styles.subNavIcon} /> Consuming Stations
                         </NavLink>
@@ -76,29 +65,17 @@ function Sidebar({ isSidebarOpen , isStationsToggleable , isInsideStations}) {
                 <NavLink 
                     to="/marketplace" 
                     className={styles.navItem}
-                    style={({ isActive }) => {
-                        return {
-                            color: isActive && '#ECEFF4',
-                            backgroundColor: isActive && '#272D45'
-                        };
-                    }}
                 >
                     <FiShoppingCart className={styles.icon} /> Marketplace
                 </NavLink>
                 <NavLink 
                     to="/settings" 
                     className={styles.navItem}
-                    style={({ isActive }) => {
-                        return {
-                            color: isActive && '#ECEFF4',
-                            backgroundColor: isActive && '#272D45'
-                        };
-                    }}
                 >
                     <FiSettings className={styles.icon} /> Settings
                 </NavLink>
             </nav>
-        </aside>
+        </div>
     );
 }
 

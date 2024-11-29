@@ -37,6 +37,7 @@ body, .app-container {
 
 .app-container {
   display: flex;
+  flex-flow: column;
   min-height: 100vh;
 }
 
@@ -45,20 +46,12 @@ body, .app-container {
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  margin-left: 220px;
+  margin-left: max(15vw, 220px);
   transition: margin-left 0.3s ease;
 }
 
 .main-content.sidebar-closed {
   margin-left: 0;
-}
-
-.balance-section {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
 }
 
 .header .icon {

@@ -19,7 +19,9 @@ function Settings() {
             />
             <main className={`main-content ${isSidebarOpen ? '' : 'sidebar-closed'}`}>
                 <Header toggleSidebar={toggleSidebar} />
-                <h1>Settings</h1>
+                <div className='page-content'>
+                    <h1>Settings</h1>
+                </div>
             </main>
         </div>
     );

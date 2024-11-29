@@ -1,9 +1,24 @@
+:root {
+   --active-nav-background: #272D45; /* Darker gray for button */
+   --active-nav-text: #ECEFF4; /* Light text for contrast */
+   --nav-hover-background: #272D45; /* Even darker shade for hover */
+   --nav-text-hover: #ECEFF4; /* Optional hover text color */
+}
+
+.light-theme {
+   --active-nav-background: #696969; /* Darker gray for button */
+   --active-nav-text: #ECEFF4; /* Light text for contrast */
+   --nav-hover-background: #696969; /* Even darker shade for hover */
+   --nav-text-hover: #ECEFF4; /* Optional hover text color */
+}
+
 .sidebar {
    background-color: var(--sidebar-background);
    color: var(--text-color);
-   width: 220px;
+   width: 15vw;
+   min-width: 220px;
    padding-top: 1rem;
-   padding-left: 1rem;
+   /* padding-left: 1rem; */
    display: flex;
    flex-direction: column;
    align-items: flex-start;
@@ -40,6 +55,11 @@
    width: 100%;
 }
 
+.nav :global(.active) {
+   color: var(--active-nav-text);
+   background-color: var(--active-nav-background);
+}
+
 .navItem {
    color: var(--text-color);
    text-decoration: none;
@@ -63,8 +83,8 @@
 }
 
 .navItem:hover {
-   color: var(--card-text);
-   background-color: var(--sidebar-hover-background);
+   color: var(--nav-text-hover);
+   background-color: var(--nav-hover-background);
 }
 
 .subNav {
@@ -90,5 +110,6 @@
 }
 
 .subNavItem:hover {
-   color: var(--card-text);
+   color: var(--nav-text-hover);
+   background-color: var(--nav-hover-background);
 }

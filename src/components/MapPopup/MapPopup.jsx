@@ -42,7 +42,7 @@ function MapPopup(props) {
     <div className={styles.popup}>
       <div className={styles.popupInner}>
         <button className={styles.closeBtn} onClick={() => props.setTrigger(false)}>&times;</button>
-        {props.children}
+        <h3>{props.title}</h3>
         <br/>
         <br/>
         <APIProvider apiKey={GOOGLE_MAPS_API_KEY} onLoad={() => console.log('Confirmed')}>
@@ -50,13 +50,16 @@ function MapPopup(props) {
               controlled={true}
                 defaultZoom={13}
                 zoom={13}
-                defaultCenter={ { lat: -33.860664, lng: 151.208138 } }
-                center={{ lat: -33.860664, lng: 151.208138 }}
+                defaultCenter={props.center}
+                center={props.center}
                 mapId='NEARBY_PRODUCERS_MAP'
                 onCameraChanged={ (ev) =>
                     console.log('camera changed:', ev.detail.center, 'zoom:', ev.detail.zoom)
                 }
-                disableDefaultUI={true}
+                streetViewControl={false}
+                rotateControl={false}
+                mapTypeControl={false}
+                fullscreenControl={false}
             >
               <PoiMarkers pois={locations}/>
             </Map>

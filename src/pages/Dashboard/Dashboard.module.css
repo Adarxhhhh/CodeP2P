@@ -1,0 +1,6 @@
+.balanceSection {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }

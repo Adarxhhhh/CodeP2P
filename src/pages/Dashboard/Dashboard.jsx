@@ -5,7 +5,7 @@ import Header from '../../components/Header/Header';
 import BalanceCard from '../../components/BalanceCard/BalanceCard';
 import Marketplace from '../../components/MarketplaceComponent/MarketplaceComponent';
 import { useTheme } from '../../context/ThemeContext'; // Import useTheme
-// import './App.css';
+import styles from './Dashboard.module.css';
 
 function Dashboard() {
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -71,19 +71,21 @@ function Dashboard() {
             />
             <main className={`main-content ${isSidebarOpen ? '' : 'sidebar-closed'}`}>
                 <Header toggleSidebar={toggleSidebar} />
-                <section className="balance-section">
-                    <BalanceCard 
-                        type="ROSE" 
-                        balance={balances.ETH} 
-                        onAddMore={connectWallet} 
-                    />
-                    <BalanceCard 
-                        type="CC" 
-                        balance={balances.CC} 
-                        onAddMore={connectWallet} 
-                    />
-                </section>
-                <Marketplace />
+                <div className='page-content'>
+                    <section className={styles.balanceSection}>
+                        <BalanceCard 
+                            type="ROSE" 
+                            balance={balances.ETH} 
+                            onAddMore={connectWallet} 
+                        />
+                        <BalanceCard 
+                            type="CC" 
+                            balance={balances.CC} 
+                            onAddMore={connectWallet} 
+                        />
+                    </section>
+                    <Marketplace />
+                </div>
             </main>
         </div>
     );

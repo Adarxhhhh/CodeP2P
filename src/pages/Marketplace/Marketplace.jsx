@@ -19,7 +19,9 @@ function Marketplace() {
             />
             <main className={`main-content ${isSidebarOpen ? '' : 'sidebar-closed'}`}>
                 <Header toggleSidebar={toggleSidebar} />
-                <MarketplaceComponent/>
+                <div className='page-content'>
+                    <MarketplaceComponent/>
+                </div>
             </main>
         </div>
     );
