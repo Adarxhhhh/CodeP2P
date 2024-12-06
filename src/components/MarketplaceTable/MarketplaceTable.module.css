@@ -10,7 +10,7 @@
    color: #B2B8D2;
    padding: 0.75rem;
    text-align: left;
-   border-radius: 8px 8px 0 0;
+   border-radius: 8px 8px 8px 8px;
 }
 
 .marketplaceTable tbody tr {
