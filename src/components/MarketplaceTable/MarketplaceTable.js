@@ -5,7 +5,8 @@ function MarketplaceTable({ filterText }) {
     const data = [
         { transaction: "AdiShriyan Solar Co", energyType: "Solar", credits: "230.00 CC", amount: "0.145 ETH", refNumber: "0047568936" },
         { transaction: "Dhanush MA Solar Panels", energyType: "Solar", credits: "150.00 CC", amount: "0.120 ETH", refNumber: "0031568935" },
-        { transaction: "Kunal HydroElectric", energyType: "HydroElectric", credits: "100.00 CC", amount: "0.90 ETH", refNumber: "0031568935" }
+        { transaction: "Kunal HydroElectric", energyType: "HydroElectric", credits: "100.00 CC", amount: "0.90 ETH", refNumber: "0011685514" },
+        { transaction: "Boston Solar Co", energyType: "Solar", credits: "70.00 CC", amount: "0.110 ETH", refNumber: "0051468511" }
     ];
 
     const filteredData = data.filter((item) =>

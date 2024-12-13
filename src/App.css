@@ -1,16 +1,16 @@
 /* Default (Dark Mode) */
 :root {
-  --background-color: #121829; /* Dark background */
+  --background-color: #0a0b0e; /* Dark background */
   --text-color: #ECEFF4; /* Light text */
-  --header-background: #1A2038; /* Dark header */
-  --sidebar-background: #1A2038; /* Dark sidebar */
-  --card-background: #1E2438; /* Dark card */
+  --header-background: #121214; /* Dark header */
+  --sidebar-background: #121214; /* Dark sidebar */
+  --card-background: #121214; /* Dark card */
   --card-text: #ECEFF4; /* Light text for cards */
   --button-background: #1a7bb7; /* Darker gray for button */
   --button-text: #ECEFF4; /* Light text for contrast */
   --button-hover-background: #10141E; /* Even darker shade for hover */
   --button-text-hover: #FFFFFF; /* Optional hover text color */
-  --serchbar-background : #1E2438;
+  --serchbar-background : #31333d;
 }
 
 .light-theme {

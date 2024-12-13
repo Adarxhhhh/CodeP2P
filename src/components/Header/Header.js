@@ -1,9 +1,9 @@
 import React from 'react';
-import { FiMenu, FiUser, FiSun, FiMoon } from 'react-icons/fi';
+import { FiMenu, FiSun, FiMoon, FiLogOut } from 'react-icons/fi';
 import { useTheme } from '../../context/ThemeContext';
 import styles from './Header.module.css';
 
-function Header({ toggleSidebar }) {
+function Header({ toggleSidebar, logout }) {
     const { theme, toggleTheme } = useTheme();
 
     return (
@@ -22,7 +22,7 @@ function Header({ toggleSidebar }) {
                 placeholder="Search here..."
             />
 
-            {/* Right-side icons: Light/Dark mode toggle and account actions */}
+            {/* Right-side icons: Light/Dark mode toggle and Logout */}
             <div className={styles.icons}>
                 {theme === 'dark' ? (
                     <FiSun
@@ -38,11 +38,11 @@ function Header({ toggleSidebar }) {
                     />
                 )}
 
-                {/* Account icon */}
-                <FiUser
+                {/* Logout icon */}
+                <FiLogOut
                     className={styles.icon}
-                    title="Account"
-                    onClick={() => alert('Account actions here!')}
+                    title="Logout"
+                    onClick={logout}
                 />
             </div>
         </header>
